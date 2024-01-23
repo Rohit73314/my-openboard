@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" type="image/x-icon" href="./icons/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>openboard_clone</title>
+</head>
+
+<body>
+    <div class="option-cont">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+    <div class="tools-cont scale-tools">
+        <img class="pencil" src="./icons/pencil.svg">
+        <img class="eraser" src="./icons/eraser.svg">
+        <img class="download" src="./icons/downloading.svg">
+        <img class="upload" src="./icons/uploading.svg">
+        <img class="stickynote" src="./icons/stickynote.svg">
+        <img class="redo" src="./icons/redo.svg">
+        <img class="undo" src="./icons/undo.svg">
+    </div>
+    <div class="pencil-tool-cont">
+        <div class="pencil-width-cont">
+            <input type="range" min="2" max="10" value="3" class="pencil-width">
+        </div>
+        <div class="pencil-color-cont">
+            <div class="black pencil-color"></div>
+            <div class="blue pencil-color"></div>
+            <div class="red pencil-color"></div>
+        </div>
+    </div>
+    <div class="eraser-tool-cont">
+        <input type="range" min="2" max="10" value="3" class="eraser-width">
+    </div>
+
+    <!-- <div class="sticky-cont">
+        <div class="header">
+            <div class="minimize"></div>
+            <div class="remove"></div>
+        </div>
+        <div class="note">
+            <textarea class="textarea-cont"></textarea>
+        </div>
+    </div> -->
+
+    <canvas></canvas>
+    <script src="https://cdn.socket.io/4.7.4/socket.io.min.js" integrity="sha384-Gr6Lu2Ajx28mzwyVR8CFkULdCU7kMlZ9UthllibdOSo6qAiN+yXNHqtgdTvFXMT4" 
+    crossorigin="anonymous"></script>
+    <script>
+        let socket = io.connect("http://localhost:1000")
+    </script>
+    <script src="./tools.js"></script>
+    <script src="./canvas1.js"></script>
+</body>
+
+</html>
