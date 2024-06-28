@@ -61,6 +61,16 @@ canvas.addEventListener("mouseup", (e) => {
     UndoRedotracker.push(url);
     track=UndoRedotracker.length-1
 })
+function beginPath(strokeobj) {
+    tool.beginPath();
+    tool.moveTo(strokeobj.x, strokeobj.y);
+}
+function draWstroke(strokeobj) {
+    tool.strokeStyle = strokeobj.color;
+    tool.lineWidth = strokeobj.width;
+    tool.lineTo(strokeobj.x, strokeobj.y);
+    tool.stroke();
+}
 
 
 undo.addEventListener("click",(e)=>{
@@ -99,22 +109,10 @@ function UndoRedocanvas(trackObj){
     img.src=url;
     img.onload=(e)=>{
         tool.clearRect(0,0,canvas.width,canvas.height)
-         tool.drawImage(img,0,0, canvas.width,canvas.height);
+         tool.drawImage(img,0,0, canvas.width,canvas.height);// helps to draw image on ui after undo and redo
     }
 
 }
-
-function beginPath(strokeobj) {
-    tool.beginPath();
-    tool.moveTo(strokeobj.x, strokeobj.y);
-}
-function draWstroke(strokeobj) {
-    tool.strokeStyle = strokeobj.color;
-    tool.lineWidth = strokeobj.width;
-    tool.lineTo(strokeobj.x, strokeobj.y);
-    tool.stroke();
-}
-
 
 
 pencilcolor.forEach((colorElem) => {
